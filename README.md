@@ -1,6 +1,7 @@
 # cl-beers
 
-    A small demo app made in Common Lisp to get a list of Beers and their details like food pairings from <a href="https://punkapi.com">Punk API</a> which is based on <a href="https://brewdog.com">BrewDog's DIY Dog API.
+A small demo app made in Common Lisp to get a list of Beers and their details like 
+food pairings from [Punk API](https://punkapi.com) which is based on [BrewDog](https://brewdog.com)'s DIY Dog API.
 
 ![cl-beers.gif](cl-beers.gif)
 
