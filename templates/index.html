@@ -1,6 +1,12 @@
 {% extends "layouts/default.html" %}
 {% block content %}
-<h1>Know your Beers!</h1>
+<div class="px-4 py-2 my-2 text-center">
+  {% include "beer-svg.html" %}
+  <h1 class="display-5 fw-bold">Brew your Beers!</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">A small demo app made in Common Lisp to get a list of Beers and their details like food pairings from <a href="https://punkapi.com">Punk API</a> which is based on <a href="https://brewdog.com">BrewDog's DIY Dog API.</p>
+  </div>
+</div>
 <div id="beer-list" class="row">
   {% include "_beer-list.html" %}
 </div>
@@ -12,6 +18,6 @@
   </div>
 </div>
 <div id="btn-more" class="d-grid gap-2 col-3 mx-auto">
-<button class="btn btn-primary" hx-get="/more?page=2" hx-target="#beer-list" hx-swap="beforeend">More Beer</button>
+  <button class="btn btn-primary" hx-get="/more?page=2" hx-target="#beer-list" hx-swap="beforeend">More Beer</button>
 </div>
 {% endblock %}
