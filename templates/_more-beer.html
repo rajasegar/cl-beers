@@ -1,0 +1,4 @@
+{% include "_beer-list.html" %}
+<div id="btn-more" class="d-grid gap-2 col-3 mx-auto" hx-swap-oob="true">
+<button class="btn btn-primary" hx-get="/more?page={{page}}" hx-target="#beer-list" hx-swap="beforeend">More Beer</button>
+</div>

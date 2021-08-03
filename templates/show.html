@@ -1,20 +1,42 @@
 {% extends "layouts/default.html" %}
 {% block content %}
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-4">
+    <img src="{{beer.image--url}}">
+  </div>
+  <div class="col-md-7 offset-md-1">
     <h1>{{beer.name}}</h1>
     <p class="fst-italic text-muted">{{beer.tagline}}</p>
     <p>{{beer.description}}</p>
-    <p><span class="fw-bold">ABV:</span> {{beer.abv}}</p>
-    <p><span class="fw-bold">IBU:</span> {{beer.ibu}}</p>
+    <p><span class="fw-bold"><abbr title="Alcohol By Volume">ABV</abbr>:</span> {{beer.abv}}</p>
+    <p><span class="fw-bold"><abbr title="International Bittering Unit">IBU</abbr>:</span> {{beer.ibu}}</p>
     <p><span class="fw-bold">PH:</span> {{beer.ph}}</p>
     <p><span class="fw-bold">Volume:</span> {{beer.volume.value}} {{beer.volume.unit}}</p>
-    <p><span class="fw-bold">Food pairing:</span> {{beer.food--pairing}}</p>
+    <div class="card mb-3">
+      <div class="card-header"><span class="fw-bold">Ingredients:</span></div>
+      <div class="card-body">
+        <p><span class="fw-bold">Malt:</span></p>
+        <ul>
+          {% for ing in beer.ingredients.malt %}
+          <li>{{ing.name}} : {{ing.amount.value}} {{ing.amount.unit}}</li>
+          {% endfor %}
+        </ul>
+        <p><span class="fw-bold">Hops:</span></p>
+        <ul>
+          {% for ing in beer.ingredients.hops %}
+          <li>{{ing.name}} : {{ing.amount.value}} {{ing.amount.unit}}</li>
+          {% endfor %}
+        </ul>
+        <p><span class="fw-bold">Yeast: </span> {{beer.ingredients.yeast}}</p>
+      </div>
+    </div>
+    <p><span class="fw-bold">Food pairing:</span></p>
+    <ul>
+      {% for food in beer.food--pairing %}
+      <li><a href="https://google.com/search?q={{food}}" target="_blank">{{food}}</a></li>
+      {% endfor %}
+    </ul>
     <p><span class="fw-bold">Brewers tips:</span> {{beer.brewers--tips}}</p>
-
-  </div>
-  <div class="col-md-6">
-    <img src="{{beer.image--url}}">
   </div>
 </div>
 {% endblock %}
