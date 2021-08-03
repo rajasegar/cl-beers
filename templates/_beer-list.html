@@ -1,0 +1,17 @@
+  {% for beer in beers %}
+  <div class="col-md-3 my-4">
+    <div class="card">
+      <img src="{{beer.image--url}}" class="card-img-top mt-2" alt="{{beer.name}}">
+      <div class="card-body">
+	<h5 class="card-title">{{beer.name}}</h5>
+	<h6 class="card-subtitle mb-2 text-muted">{{beer.tagline}}</h6>
+	<p class="card-text">{{beer.description|truncate-desc}}</p>
+	<a href="/beer/{{beer.id}}" class="btn btn-primary">Crack open</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+<div id="btn-more" class="d-grid gap-2 col-3 mx-auto" hx-swap-oob="true">
+<button class="btn btn-primary" hx-get="/more?page={{page}}" hx-target="#beer-list" hx-swap="beforeend">More Beer</button>
+</div>
